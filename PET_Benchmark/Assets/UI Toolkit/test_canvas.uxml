@@ -1,0 +1,14 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/test_stylesheet.uss?fileID=7433441132597879392&amp;guid=37746cfb6f4dd81b9a06a1644a78eaba&amp;type=3#test_stylesheet" />
+    <ui:VisualElement name="screen" style="flex-shrink: 1; flex-grow: 1; justify-content: flex-start; left: 0; top: 0; right: 0; bottom: 0; position: absolute;">
+        <ui:VisualElement name="upperRight" class="line" style="justify-content: flex-start; position: absolute; right: auto; bottom: auto; height: 4%; width: 25%; background-color: rgb(255, 0, 0); flex-direction: column; align-items: flex-start; top: -1%; left: 65%;" />
+        <ui:VisualElement name="lowerLeft" class="line" style="height: 4%; width: 25%; background-color: rgb(0, 0, 255); position: absolute; top: auto; left: 10%; justify-content: flex-end; align-items: flex-end; flex-direction: column; flex-basis: auto; bottom: 0; right: auto;" />
+        <ui:VisualElement name="rightUp" class="line" style="background-color: rgb(255, 255, 0); height: 25%; width: 4%; position: absolute; top: 10%; left: auto; right: 0; bottom: 0;" />
+        <ui:VisualElement name="leftUp" focusable="true" class="line" style="flex-direction: column; justify-content: space-around; position: absolute; height: 25%; width: 4%; background-color: rgb(0, 255, 0); left: 0; bottom: 0; top: 10%;" />
+        <ui:Button text="Button" display-tooltip-when-elided="true" name="button" style="left: 45%; top: 45%; width: 15%; height: 10%;" />
+        <ui:VisualElement name="lowerRight" class="line" style="height: 4%; width: 25%; background-color: rgb(0, 0, 255); position: absolute; top: auto; left: 65%; justify-content: flex-end; align-items: flex-end; flex-direction: column; flex-basis: auto; bottom: 0; right: 0;" />
+        <ui:VisualElement name="upperLeft" class="line" style="justify-content: flex-start; position: absolute; right: auto; bottom: auto; height: 4%; width: 25%; background-color: rgb(255, 0, 0); flex-direction: column; align-items: flex-start; top: -1%; left: 10%;" />
+        <ui:VisualElement name="rightLow" class="line" style="background-color: rgb(255, 255, 0); height: 25%; width: 4%; position: absolute; top: 65%; left: auto; right: 0; bottom: auto;" />
+        <ui:VisualElement name="leftLow" focusable="true" class="line" style="flex-direction: column; justify-content: space-around; position: absolute; height: 25%; width: 4%; background-color: rgb(0, 255, 0); left: 0; bottom: 0; top: 65%;" />
+    </ui:VisualElement>
+</ui:UXML>
