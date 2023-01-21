@@ -26,7 +26,6 @@ public class ObjectMovement : MonoBehaviour
     {
         if (isCollisionObject)
         {
-            Debug.Log("obj is collider object");
             targetPosition = new Vector3(transform.position.x * (-1), 1f, transform.position.z * (-1));
         }
 

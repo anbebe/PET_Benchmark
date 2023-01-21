@@ -404,7 +404,8 @@ MonoBehaviour:
   obj: {fileID: 7638733583878986935, guid: 26a0a306ba2b4434693fb20d43813423, type: 3}
   delay: 10
   preparationDelay: 5
-  objPositions:
+  patternOrder: 010000000200000003000000
+  objPositions1:
   - {x: -1, y: 1, z: -4}
   - {x: 0, y: 1, z: 4}
   - {x: 4, y: 1, z: -0.5}
@@ -415,11 +416,43 @@ MonoBehaviour:
   - {x: -4, y: 1, z: -2}
   - {x: 4, y: 1, z: 2}
   - {x: 2.5, y: 1, z: 3.5}
-  passIndices: 020000000400000007000000
-  passTargetPos:
+  passIndices1: 020000000400000007000000
+  passTargetPos1:
   - {x: 0, y: 1, z: -4}
   - {x: 2.5, y: 1, z: 3.5}
   - {x: 4, y: 1, z: -2}
+  objPositions2:
+  - {x: -4, y: 1, z: 2}
+  - {x: 4, y: 1, z: 1}
+  - {x: 4, y: 1, z: -2}
+  - {x: 3.5, y: 1, z: 3.5}
+  - {x: 1.5, y: 1, z: -4}
+  - {x: -1, y: 1, z: -4}
+  - {x: 3.5, y: 1, z: 3}
+  - {x: -4, y: 1, z: -2}
+  - {x: -4, y: 1, z: 3}
+  - {x: 1, y: 1, z: -4}
+  passIndices2: 010000000400000008000000
+  passTargetPos2:
+  - {x: -1, y: 1, z: 4}
+  - {x: -4, y: 1, z: 0}
+  - {x: 4, y: 1, z: 3}
+  objPositions3:
+  - {x: 4, y: 1, z: 0}
+  - {x: -4, y: 1, z: 1.5}
+  - {x: -0.5, y: 1, z: -4}
+  - {x: 1, y: 1, z: 4}
+  - {x: -3, y: 1, z: 3.5}
+  - {x: 3, y: 1, z: 3}
+  - {x: 1, y: 1, z: -3.5}
+  - {x: -1, y: 1, z: 4}
+  - {x: 4, y: 1, z: -2.5}
+  - {x: -2.5, y: 1, z: -3}
+  passIndices3: 030000000600000009000000
+  passTargetPos3:
+  - {x: 1, y: 1, z: -4}
+  - {x: -4, y: 1, z: 2}
+  - {x: 0, y: 1, z: 4}
 --- !u!4 &1646168315
 Transform:
   m_ObjectHideFlags: 0
