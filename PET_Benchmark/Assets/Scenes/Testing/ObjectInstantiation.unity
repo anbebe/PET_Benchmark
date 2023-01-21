@@ -404,6 +404,22 @@ MonoBehaviour:
   obj: {fileID: 7638733583878986935, guid: 26a0a306ba2b4434693fb20d43813423, type: 3}
   delay: 10
   preparationDelay: 5
+  objPositions:
+  - {x: -1, y: 1, z: -4}
+  - {x: 0, y: 1, z: 4}
+  - {x: 4, y: 1, z: -0.5}
+  - {x: 3.5, y: 1, z: 3}
+  - {x: -4, y: 1, z: 0}
+  - {x: -2.5, y: 1, z: 4}
+  - {x: 4, y: 1, z: -3}
+  - {x: -4, y: 1, z: -2}
+  - {x: 4, y: 1, z: 2}
+  - {x: 2.5, y: 1, z: 3.5}
+  passIndices: 020000000400000007000000
+  passTargetPos:
+  - {x: 0, y: 1, z: -4}
+  - {x: 2.5, y: 1, z: 3.5}
+  - {x: 4, y: 1, z: -2}
 --- !u!4 &1646168315
 Transform:
   m_ObjectHideFlags: 0
