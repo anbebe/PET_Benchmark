@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ObjectAudio : MonoBehaviour
@@ -29,4 +30,6 @@ public class ObjectAudio : MonoBehaviour
         float pitch = ((farPitch - closePitch) * (x - minDistance) / (maxDistance - minDistance)) + closePitch; 
         source.pitch = pitch;
     }
+
+
 }
