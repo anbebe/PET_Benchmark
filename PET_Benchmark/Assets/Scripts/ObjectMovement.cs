@@ -31,10 +31,19 @@ public class ObjectMovement : MonoBehaviour
 
         StartCoroutine(DestroyObject());
     }
-    
+
     private void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * speed);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("collision");
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     private IEnumerator DestroyObject()
