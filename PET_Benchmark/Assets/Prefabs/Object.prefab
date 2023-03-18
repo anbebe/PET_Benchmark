@@ -112,7 +112,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  destroyDelay: 5
+  destroyDelay: 4
+  collisionHappened: 0
 --- !u!114 &2685982609917383237
 MonoBehaviour:
   m_ObjectHideFlags: 0

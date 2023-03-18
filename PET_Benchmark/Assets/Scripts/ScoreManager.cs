@@ -14,6 +14,6 @@ public class ScoreManager : MonoBehaviour
 
    public void ShowTotalScore()
    {
-      Debug.Log("Total Score: " + totalScore);
+      Debug.Log("Total Score: " + Mathf.Round(totalScore));
    }
 }

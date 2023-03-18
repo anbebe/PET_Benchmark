@@ -60,6 +60,16 @@ public class ObjectInstantiator : MonoBehaviour
             // for each entry in the list of general positions set in the editor
             for (var i = 0; i < positions.Count; i++)
             {
+                // wait until participant returns to center
+                yield return new WaitUntil(() =>
+                    GameObject.FindWithTag("Player").transform.position == new Vector3(0, 1.1f, 0));
+                
+                // wait before instantiating the next object
+                yield return new WaitForSeconds(delay);
+                
+                // reset playerMovementCounter for each object
+                GameObject.FindWithTag("Player").GetComponent<GridMovement>().PlayerMovementCounter = 0;
+                
                 var dirPos = positions[i];
                 // calculate the corresponding point on the circle around the participant
                 Vector3 pos = CalculateCoordinates(dirPos);
@@ -81,15 +91,13 @@ public class ObjectInstantiator : MonoBehaviour
                     instantiatedObj.GetComponent<ObjectMovement>().IsCollisionObject = true;
                 
                 }
-            
-                // wait before instantiating the next object
-                yield return new WaitForSeconds(delay);
             }
 
             Debug.Log("next pattern will be played");
             yield return new WaitForSeconds(preparationDelay * 2f);
         }
         
+        // show total score at the end of the experiment (after each of the 3 patterns were played)
         GameObject.Find("ScoreManager").GetComponent<ScoreManager>().Invoke("ShowTotalScore", 0f);
     }
 
