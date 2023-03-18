@@ -24,14 +24,31 @@ public class ScoreCalculator : MonoBehaviour
     {
         float distance = Vector3.Distance(participant.transform.position, transform.position);
 
-        float x = Mathf.Clamp(distance, 1f, 4f);
-        score = ((0f - 100f) * (x - 1f) / (4f - 1f)) + 100f;
+        switch (distance)
+        {
+            case > 3f:
+                score = 25;
+                break;
+            case > 2f:
+                score = 50;
+                break;
+            case > 1f:
+                score = 75;
+                break;
+            default:
+                score = 100;
+                break;
+        }
+
+        //float x = Mathf.Clamp(distance, 1f, 4f);
+        //score = ((0f - 100f) * (x - 1f) / (4f - 1f)) + 100f;
     }
 
     public void SetCurrentScore()
     {
         scoreOnMovement = score;
         Debug.Log("Preliminary Object Score: " + scoreOnMovement);
+        Debug.Log("Distance: " + Vector3.Distance(participant.transform.position, transform.position));
     }
 
     public void AddScoreToTotalScore()

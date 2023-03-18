@@ -40,12 +40,16 @@ public class ObjectInstantiator : MonoBehaviour
 
     private GameObject instantiatedObj; // specific object that was instantiated
 
+    private GameObject player;
+
     private void Start()
     {
         CreatePassObjDictionary(passIndices1, passTargetPos1, passObj1);
         CreatePassObjDictionary(passIndices2, passTargetPos2, passObj2);
         CreatePassObjDictionary(passIndices3, passTargetPos3, passObj3);
         StartCoroutine(SpawnObjects());
+        
+        player = GameObject.FindWithTag("Player");
     }
 
     private IEnumerator SpawnObjects()
@@ -60,15 +64,15 @@ public class ObjectInstantiator : MonoBehaviour
             // for each entry in the list of general positions set in the editor
             for (var i = 0; i < positions.Count; i++)
             {
-                // wait until participant returns to center
+                // wait until participant returns to center; TODO: does not seem to work suddenly
                 yield return new WaitUntil(() =>
-                    GameObject.FindWithTag("Player").transform.position == new Vector3(0, 1.1f, 0));
+                    player.transform.position == new Vector3(0, 1.1f, 0));
                 
                 // wait before instantiating the next object
                 yield return new WaitForSeconds(delay);
                 
                 // reset playerMovementCounter for each object
-                GameObject.FindWithTag("Player").GetComponent<GridMovement>().PlayerMovementCounter = 0;
+                player.GetComponent<GridMovement>().PlayerMovementCounter = 0;
                 
                 var dirPos = positions[i];
                 // calculate the corresponding point on the circle around the participant
