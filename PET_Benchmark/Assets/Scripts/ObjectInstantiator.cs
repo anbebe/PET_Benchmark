@@ -89,6 +89,8 @@ public class ObjectInstantiator : MonoBehaviour
             Debug.Log("next pattern will be played");
             yield return new WaitForSeconds(preparationDelay * 2f);
         }
+        
+        GameObject.Find("ScoreManager").GetComponent<ScoreManager>().Invoke("ShowTotalScore", 0f);
     }
 
     // takes the coordinates of the general point (direction) and calculates the coordinates of the corresponding point on the circle

@@ -22,6 +22,8 @@ public class ObjectMovement : MonoBehaviour
         set => isCollisionObject = value;
     }
 
+    public bool collisionHappened = false;
+
     private void Start()
     {
         if (isCollisionObject)
@@ -39,9 +41,12 @@ public class ObjectMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("collision");
+        Debug.Log("Collision --> Object Score: 0");
         if (other.gameObject.CompareTag("Player"))
         {
+            collisionHappened = true;
+            GetComponent<ScoreCalculator>().Invoke("SetScore", 0f);
+            
             Destroy(this.gameObject);
         }
     }
@@ -49,6 +54,8 @@ public class ObjectMovement : MonoBehaviour
     private IEnumerator DestroyObject()
     {
         yield return new WaitForSeconds(destroyDelay);
+        
+        GetComponent<ScoreCalculator>().Invoke("SetScore", 0f);
         
         Destroy(this.gameObject);
     }
