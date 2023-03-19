@@ -85,7 +85,7 @@ public class ScoreCalculator : MonoBehaviour
             }
         }
 
-        scoreManager.TotalScore += score;
+        scoreManager.addScore(score);
         Debug.Log("Current Total Score: " + scoreManager.TotalScore);
     }
 }

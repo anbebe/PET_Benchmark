@@ -5,6 +5,7 @@ using UnityEngine;
 public class ScoreManager : MonoBehaviour
 {
    private float totalScore;
+   private List<float> individualScores = new List<float>();
 
    public float TotalScore
    {
@@ -15,5 +16,11 @@ public class ScoreManager : MonoBehaviour
    public void ShowTotalScore()
    {
       Debug.Log("Total Score: " + totalScore);
+   }
+
+   public void addScore(float score)
+   {
+      totalScore += score;
+      individualScores.Add(score);
    }
 }
