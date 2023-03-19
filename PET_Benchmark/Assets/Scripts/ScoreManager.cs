@@ -12,6 +12,10 @@ public class ScoreManager : MonoBehaviour
       get => totalScore;
       set => totalScore = value;
    }
+   public List<float> IndividualScores
+   {
+      get => individualScores;
+   }
 
    public void ShowTotalScore()
    {

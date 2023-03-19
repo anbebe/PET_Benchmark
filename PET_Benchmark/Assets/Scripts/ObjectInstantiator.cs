@@ -100,6 +100,7 @@ public class ObjectInstantiator : MonoBehaviour
             Debug.Log("next pattern will be played");
             yield return new WaitForSeconds(preparationDelay * 2f);
         }
+        GetComponent<WriteToCSV>().Write(GameObject.Find("ScoreManager").GetComponent<ScoreManager>().IndividualScores, patternOrder);
         
         // show total score at the end of the experiment (after each of the 3 patterns were played)
         GameObject.Find("ScoreManager").GetComponent<ScoreManager>().Invoke("ShowTotalScore", 0f);
