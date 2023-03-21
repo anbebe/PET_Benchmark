@@ -19,8 +19,11 @@ public class ObjectMovement : MonoBehaviour
     private bool isCollisionObject;
     public bool IsCollisionObject
     {
+        get => isCollisionObject;
         set => isCollisionObject = value;
     }
+
+    public bool collisionHappened = false;
 
     private void Start()
     {
@@ -39,9 +42,13 @@ public class ObjectMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("collision");
+        // TODO: do not destroy object on collision because sense signalling would stop and the participants would learn (because they then know that they collided with the object)?
+        Debug.Log("Collision --> Object Score: 0");
         if (other.gameObject.CompareTag("Player"))
         {
+            collisionHappened = true;
+            GetComponent<ScoreCalculator>().Invoke("AddScoreToTotalScore", 0f);
+            
             Destroy(this.gameObject);
         }
     }
@@ -49,6 +56,8 @@ public class ObjectMovement : MonoBehaviour
     private IEnumerator DestroyObject()
     {
         yield return new WaitForSeconds(destroyDelay);
+        
+        GetComponent<ScoreCalculator>().Invoke("AddScoreToTotalScore", 0f);
         
         Destroy(this.gameObject);
     }

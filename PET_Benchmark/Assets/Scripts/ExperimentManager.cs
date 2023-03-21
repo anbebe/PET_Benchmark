@@ -26,6 +26,8 @@ public static class ExperimentManager
     public static ExperimentMode[] modeList = new[]
         {ExperimentMode.Auditory, ExperimentMode.Tactile, ExperimentMode.Visual};
     public static Guid userGuid = System.Guid.NewGuid();
+    //Todo set proper trial
+    public static int trialNumber = 1;
 
     //Use SceneManager to load a scene
     public static void Load(Scene scene)

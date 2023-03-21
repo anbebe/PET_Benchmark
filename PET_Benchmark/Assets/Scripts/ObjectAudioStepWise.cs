@@ -7,9 +7,7 @@ public class ObjectAudioStepWise : MonoBehaviour
     private AudioSource source;
     private float distance;
     private GameObject participant;
-
-    private float minDistance = 1f;
-    private float maxDistance = 4f;
+    
     [SerializeField] private float closeDelay;
     [SerializeField] private float middleDelay;
     [SerializeField] private float farDelay;
