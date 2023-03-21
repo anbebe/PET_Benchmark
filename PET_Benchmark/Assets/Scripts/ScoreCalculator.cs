@@ -20,11 +20,17 @@ public class ScoreCalculator : MonoBehaviour
         isCollisionObject = GetComponent<ObjectMovement>().IsCollisionObject;
     }
 
-    private void Update()
+    /*private void Update()
     {
-        float distance = Vector3.Distance(participant.transform.position, transform.position);
+        // var participantY = participant.transform.position.z;
+        // var objectY = transform.position.z;
+        // var distance = Vector2.Distance(new Vector2(participant.transform.position.x, participantY), new Vector2(transform.position.x, objectY));
+        
+        var vectorToTarget = participant.transform.position - transform.position;
+        vectorToTarget.y = 0;
+        var distanceToTarget = vectorToTarget.magnitude;
 
-        switch (distance)
+        /*switch (distance)
         {
             case > 3f:
                 score = 25;
@@ -38,14 +44,22 @@ public class ScoreCalculator : MonoBehaviour
             default:
                 score = 100;
                 break;
-        }
+        }#1#
 
-        //float x = Mathf.Clamp(distance, 1f, 4f);
-        //score = ((0f - 100f) * (x - 1f) / (4f - 1f)) + 100f;
-    }
+        float x = Mathf.Clamp(distanceToTarget, 0.6f, 4f);
+        score = ((0f - 100f) * (x - 0.6f) / (4f - 0.6f)) + 100f;
+    }*/
 
     public void SetCurrentScore()
     {
+        var vectorToTarget = participant.transform.position - transform.position;
+        vectorToTarget.y = 0;
+        var distanceToTarget = vectorToTarget.magnitude;
+        
+        float x = Mathf.Clamp(distanceToTarget, 1f, 4f);
+        score = ((1f - 150f) * (x - 1f) / (4f - 1f)) + 150f;
+        score = Mathf.Clamp(score, 1f, 100f);
+        
         scoreOnMovement = score;
         Debug.Log("Preliminary Object Score: " + scoreOnMovement);
         Debug.Log("Distance: " + Vector3.Distance(participant.transform.position, transform.position));
