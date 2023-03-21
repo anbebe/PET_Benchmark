@@ -64,6 +64,7 @@ public class ObjectInstantiator : MonoBehaviour
             // for each entry in the list of general positions set in the editor
             for (var i = 0; i < positions.Count; i++)
             {
+                Debug.Log(player.transform.position);
                 // wait until participant returns to center; TODO: does not seem to work suddenly
                 yield return new WaitUntil(() =>
                     player.transform.position == new Vector3(0, 1.1f, 0));
@@ -77,9 +78,11 @@ public class ObjectInstantiator : MonoBehaviour
                 var dirPos = positions[i];
                 // calculate the corresponding point on the circle around the participant
                 Vector3 pos = CalculateCoordinates(dirPos);
+                Debug.Log(pos);
             
                 // instantiate object
                 instantiatedObj = Instantiate(obj, pos, Quaternion.identity, this.transform);
+                Debug.Log(("inst"));
             
                 // check if object should just pass the participant
                 foreach (var (ind, targetPos) in passObjDictionary)
