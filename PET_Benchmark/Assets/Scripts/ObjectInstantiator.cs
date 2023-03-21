@@ -38,7 +38,7 @@ public class ObjectInstantiator : MonoBehaviour
     
     private float xObj, zObj, mLine;
 
-    private GameObject instantiatedObj; // specific object that was instantiated
+    public GameObject instantiatedObj; // specific object that was instantiated
 
     private void Start()
     {
