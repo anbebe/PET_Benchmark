@@ -83,19 +83,25 @@ public class ObjectInstantiator : MonoBehaviour
                 // instantiate object
                 instantiatedObj = Instantiate(obj, pos, Quaternion.identity, this.transform);
                 Debug.Log(("inst"));
-            
+                //get the script here so there is not as many GetComponent calls to the same script
+                ObjectMovement objMovementScript = instantiatedObj.GetComponent<ObjectMovement>();
+                
+                //give the instantiated object some more info that is later saved to CSV
+                objMovementScript.SpawnPosition = pos;
+
                 // check if object should just pass the participant
                 foreach (var (ind, targetPos) in passObjDictionary)
                 {
+                    
                     if (ind == i) 
                     {
                         // if yes, set collision bool to false and target position (calculated to be on the circle) as set in the editor
-                        instantiatedObj.GetComponent<ObjectMovement>().IsCollisionObject = false;
-                        instantiatedObj.GetComponent<ObjectMovement>().TargetPosition = CalculateCoordinates(targetPos);
+                        objMovementScript.IsCollisionObject = false;
+                        objMovementScript.TargetPosition = CalculateCoordinates(targetPos);
                         break;
                     }
                     // if not, set collision bool to true
-                    instantiatedObj.GetComponent<ObjectMovement>().IsCollisionObject = true;
+                    objMovementScript.IsCollisionObject = true;
                 
                 }
             }
@@ -103,7 +109,7 @@ public class ObjectInstantiator : MonoBehaviour
             Debug.Log("next pattern will be played");
             yield return new WaitForSeconds(preparationDelay * 2f);
         }
-        GetComponent<WriteToCSV>().Write(GameObject.Find("ScoreManager").GetComponent<ScoreManager>().IndividualScores, patternOrder);
+        GetComponent<WriteToCSV>().Write(GameObject.Find("ScoreManager").GetComponent<ScoreManager>().SpawnObjectList, patternOrder);
         
         // show total score at the end of the experiment (after each of the 3 patterns were played)
         GameObject.Find("ScoreManager").GetComponent<ScoreManager>().Invoke("ShowTotalScore", 0f);

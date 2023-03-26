@@ -99,7 +99,9 @@ public class ScoreCalculator : MonoBehaviour
             }
         }
 
-        scoreManager.addScore(score);
+        //scoreManager.addScore(score);
+        ObjectMovement objMoveScript = GetComponent<ObjectMovement>();
+        scoreManager.addScoreNew(score, participant.GetComponent<GridMovement>().PlayerMovementCounter, isCollisionObject, objMoveScript.collisionHappened, objMoveScript.SpawnPosition, objMoveScript.TargetPosition, participant.transform.position);
         Debug.Log("Current Total Score: " + scoreManager.TotalScore);
     }
 }

@@ -21,22 +21,40 @@ public class WriteToCSV : MonoBehaviour
         
     }
 
-    public void Write(List<float> scores, List<int> patternOrder)
+    public void Write(List<SpawnObjectInfo> spawnObjectList, List<int> patternOrder)
     {
         Debug.Log("Writing File");
         String sense = ExperimentManager.currentMode.ToString(); 
         int trialNumber = ExperimentManager.trialNumber;
         Guid userID = ExperimentManager.userGuid;
         String filename = Application.dataPath + "/Data/" + userID + "_Trial_" + trialNumber +"_"+ sense + ".csv";
-        String header = "Pattern,PlayerScore";
+        String header = "Pattern;ObjectIndex;ObjectSpawnPos;ObjectTargetPos;ObjectDirection;IsCollision;HitPlayer;PlayerScore;PlayerMoves;NewPlayerPos";
         TextWriter csvFile = new StreamWriter(filename, false);
-        int pattern = 0;
-        float playerScore = -1;
-        for (int i = 0; i<scores.Count; i++)
+        
+        int pattern = 1;
+        int objectIndex = 0;
+        Vector3 objectSpawnPos = Vector3.zero;
+        Vector3 objectTargetPos = Vector3.zero;
+        Vector3 objectDirection = Vector3.zero;
+        bool isCollision = false;
+        bool hitPlayer = false;
+        float playerScore = 50.0f;
+        int playerMoves = 0;
+        Vector3 newPlayerPos = Vector3.zero;
+        
+        for (int i = 0; i<spawnObjectList.Count; i++)
         {
             pattern = patternOrder[(i / 10)];
-            playerScore = scores[i];
-            fileLines.Add(pattern.ToString() + "," + playerScore.ToString());
+            playerScore = spawnObjectList[i].playerScore;
+            objectIndex = i;
+            objectSpawnPos = spawnObjectList[i].spawnPos;
+            objectTargetPos = spawnObjectList[i].targetPos;
+            objectDirection = (objectTargetPos - objectSpawnPos).normalized;
+            isCollision = spawnObjectList[i].isCollisionObject;
+            hitPlayer = spawnObjectList[i].hitPlayer;
+            playerMoves = spawnObjectList[i].playerMovements;
+            newPlayerPos = spawnObjectList[i].newPlayerPos;
+            fileLines.Add(pattern.ToString() + ";" +objectIndex.ToString() + ";" + objectSpawnPos.ToString() + ";" +objectTargetPos.ToString() + ";" + objectDirection + ";" + isCollision.ToString() + ";" + hitPlayer.ToString() + ";" + playerScore.ToString() + ";" + playerMoves.ToString() + ";" + newPlayerPos.ToString());
         }
         
         csvFile.WriteLine(header);
@@ -56,18 +74,27 @@ public class WriteToCSV : MonoBehaviour
         String sense = "Vision"; 
         int trialNumber = 0;
         String filename = Application.dataPath + "/Data/" + ExperimentManager.userGuid + "_Trial_" + trialNumber +"_"+ sense + ".csv";
-        String header = "Pattern,IsCollision,HitPlayer,PlayerScore,PlayerMoved";
+        String header = "Pattern,ObjectIndex,ObjectSpawnPos,ObjectTargetPos,ObjectDirection,IsCollision,HitPlayer,PlayerScore,PlayerMoves,NewPlayerPos";
         TextWriter csvFile = new StreamWriter(filename, false);
         
         int pattern = 1;
+        int objectIndex = 0;
+        Vector3 objectSpawnPos = Vector3.zero;
+        Vector3 objectTargetPos = Vector3.right;
+        Vector3 objectDirection = (objectTargetPos - objectSpawnPos).normalized;
         bool isCollision = false;
         bool hitPlayer = false;
         float playerScore = 50.0f;
-        bool playerMoved = false;
+        int playerMoves = 0;
+        Vector3 newPlayerPos = Vector3.zero;
 
-        fileLines.Add(pattern.ToString() + "," + isCollision + "," + hitPlayer + "," + playerScore.ToString() + "," + playerMoved);
-        fileLines.Add(pattern.ToString() + "," + isCollision + "," + hitPlayer + "," + playerScore.ToString() + "," + playerMoved);
-        fileLines.Add(pattern.ToString() + "," + isCollision + "," + hitPlayer + "," + playerScore.ToString() + "," + playerMoved);
+        fileLines.Add(pattern.ToString() + "," +objectIndex.ToString() + "," + objectSpawnPos.ToString() + "," +objectTargetPos.ToString() + "," + objectDirection + "," + isCollision.ToString() + "," + hitPlayer.ToString() + "," + playerScore.ToString() + "," + playerMoves.ToString() + "," + newPlayerPos.ToString());
+        fileLines.Add(pattern.ToString() + "," +objectIndex.ToString() + "," + objectSpawnPos.ToString() + "," +objectTargetPos.ToString() + "," + objectDirection + "," + isCollision.ToString() + "," + hitPlayer.ToString() + "," + playerScore.ToString() + "," + playerMoves.ToString() + "," + newPlayerPos.ToString());
+        fileLines.Add(pattern.ToString() + "," +objectIndex.ToString() + "," + objectSpawnPos.ToString() + "," +objectTargetPos.ToString() + "," + objectDirection + "," + isCollision.ToString() + "," + hitPlayer.ToString() + "," + playerScore.ToString() + "," + playerMoves.ToString() + "," + newPlayerPos.ToString());
+
+       // fileLines.Add(pattern.ToString() + "," + isCollision + "," + hitPlayer + "," + playerScore.ToString() + "," + playerMoved);
+       // fileLines.Add(pattern.ToString() + "," + isCollision + "," + hitPlayer + "," + playerScore.ToString() + "," + playerMoved);
+       // fileLines.Add(pattern.ToString() + "," + isCollision + "," + hitPlayer + "," + playerScore.ToString() + "," + playerMoved);
         
         csvFile.WriteLine(header);
 

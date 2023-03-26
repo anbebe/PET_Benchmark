@@ -10,10 +10,16 @@ public class ObjectMovement : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float destroyDelay;
     private Vector3 targetPosition;
+    private Vector3 spawnPosition;
     public Vector3 TargetPosition
     {
         get => targetPosition;
         set => targetPosition = value;
+    } 
+    public Vector3 SpawnPosition
+    {
+        get => spawnPosition;
+        set => spawnPosition = value;
     }
     
     private bool isCollisionObject;
