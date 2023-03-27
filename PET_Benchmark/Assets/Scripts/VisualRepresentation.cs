@@ -4,12 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using System.Threading;
+using Unity.VisualScripting;
+using Image = UnityEngine.UI.Image;
 
 public class VisualRepresentation : MonoBehaviour
 {
-    private VisualElement _cue;
     [SerializeField] private GameObject _player;
+    [SerializeField] private Canvas _canvas;
+    [SerializeField] private Image image;
     private GameObject _obj;
+    private RectTransform rectTransform;
     private float _horizontal_radius;
     private float _vertical_radius;
     
@@ -17,12 +21,28 @@ public class VisualRepresentation : MonoBehaviour
     void Start()
     {
         _player = GameObject.Find("Player");
-        _cue.style.backgroundColor = new StyleColor(new Color(1, 1, 0f));
-        _cue.style.color = new StyleColor(new Color(1, 1, 0f));
+        //img.color = new Color(1, 1, 0f);
+        
+        Debug.Log("center: " + _canvas.pixelRect.center);
+        Debug.Log("height: " + _canvas.pixelRect.height/_canvas.referencePixelsPerUnit);
+        Debug.Log("width: " + _canvas.pixelRect.width/_canvas.referencePixelsPerUnit);
+        
+        Debug.Log("pixels per unit" + _canvas.referencePixelsPerUnit);
         
         // radius = Mathf.Min(Screen.width/2, Screen.height/2);
-        _horizontal_radius = Screen.width/2 - 20;
-        _vertical_radius = Screen.height / 2 - 20;
+        _horizontal_radius = _canvas.pixelRect.center.x/_canvas.referencePixelsPerUnit - 0.5f;
+        _vertical_radius = _canvas.pixelRect.center.y/_canvas.referencePixelsPerUnit - 1f;
+
+        rectTransform = image.GetComponent<RectTransform>();
+
+        Debug.Log("x radius" + rectTransform.transform.position);
+        Debug.Log("y radius" + image.transform.localPosition);
+
+        var pos_x = 0;
+        var pos_y = 0;
+        var pos_z = image.transform.localPosition.z;
+        image.transform.localPosition = new Vector3(pos_x, pos_y, pos_z);
+        
         
         FindObject();
         //StartCoroutine(Move());
@@ -48,31 +68,27 @@ public class VisualRepresentation : MonoBehaviour
             angle = angle * Mathf.Deg2Rad;
             
             var direction = heading / distance;
-            Debug.Log(direction);
-            //direction = direction;
             double radians = Math.Atan2(direction.z, direction.x);
 
-            //substract camera heading from direction calculated from a standard position
-            //double radian_head = Math.Atan2(Camera.main.transform.forward.z -1, Camera.main.transform.forward.x);
-            //Debug.Log(radian_head);
-            //radians  += radian_head;
-            float rad = (float)radians - angle + Mathf.PI/2;
+            float rad = (float)radians - Mathf.PI - angle ;
+            
+            Debug.Log("radian: " + radians);
 
-            float y = (Screen.height/2- 20) + _vertical_radius * Mathf.Cos(rad);
-            float x = (Screen.width/2 - 20) + _horizontal_radius * Mathf.Sin(rad);
+            float y =  - _vertical_radius * Mathf.Sin(rad);
+            float x = - _horizontal_radius * Mathf.Cos(rad);
 
-            var z = _cue.transform.position.z;
-            _cue.transform.position = new Vector3(x, y, z);
+            var z = image.transform.localPosition.z;
+            image.transform.localPosition = new Vector3(x, y, z);
             
             // distance
             // get current values
-            float _r = _cue.style.color.value.r;
-            float _b = _cue.style.color.value.b;
+            float _r = image.color.r;
+            float _b = image.color.b;
+            
             // map from distance (clip to max 4?) to color range (0,1)
             distance = Mathf.Clamp(distance, 0f, 4f);
             distance = distance / 4; // should be between 0 and 1
-            _cue.style.color = new StyleColor(new Color(_r, distance, _b));
-            _cue.style.backgroundColor = new StyleColor(new Color(_r, distance, _b));
+            image.color = new Color(_r, distance, _b);
         }
         else
         {
@@ -86,47 +102,31 @@ public class VisualRepresentation : MonoBehaviour
         _obj = GameObject.FindGameObjectWithTag("MovingObject");
     }
 
-    //Add logic that interacts with the UI controls in the `OnEnable` methods
-    private void OnEnable()
-    {
-        // The UXML is already instantiated by the UIDocument component
-        var uiDocument = GetComponent<UIDocument>();
-        Debug.Log("Loaded UI");
-        
-        var _rootVisualElement = uiDocument.rootVisualElement;
-
-        // Get the  visual element from the ui
-        _cue = _rootVisualElement.Q<VisualElement>(name: "cue");
-    }
-
     private IEnumerator Move()
     {
-        /*
-        for (int i = 0; i < 5; i++)
+        /*for (int i = 0; i < 5; i++)
         {
             yield return new WaitForSeconds(1f);
-            var pos_x = _cue.transform.position.x;
-            var pos_y = _cue.transform.position.y;
-            var pos_z = _cue.transform.position.z;
-            _cue.transform.position = new Vector3(pos_x, pos_y + 10f, pos_z);
-            float _r = _cue.style.color.value.r;
-            float _g = _cue.style.color.value.g;
-            float _b = _cue.style.color.value.b;
-            _cue.style.color = new StyleColor(new Color(_r, _g - 0.1f, _b));
-            _cue.style.backgroundColor = new StyleColor(new Color(_r, _g - 0.1f, _b));
-        }
-        */
-        var z = _cue.transform.position.z;
-        _cue.transform.position = new Vector3((float) Screen.width/2, (float) Screen.height/2, z);
+            var pos_x = rectTransform.transform.position.x;
+            var pos_y = rectTransform.transform.position.y;
+            var pos_z = rectTransform.transform.position.z;
+            Debug.Log("post position: " + pos_x + " " + pos_y + " " + pos_z);
+            rectTransform.transform.position = new Vector3(pos_x + 0.1f, pos_y, pos_z);
+            float _r = image.color.r;
+            float _g = image.color.g;
+            float _b = image.color.b;
+            image.color = new Color(_r, _g - 0.1f, _b);
+            //_cue.style.backgroundColor = new StyleColor(new Color(_r, _g - 0.1f, _b));
+        }*/
+        
+        var z = image.transform.localPosition.z;
         yield return new WaitForSeconds(1f);
         for (int i = 0; i < 360; i += 20)
         {
             yield return new WaitForSeconds(1f);
-            float y = (Screen.height/2- 20) + _vertical_radius * Mathf.Cos(i * Mathf.Deg2Rad);
-            float x = (Screen.width/2 - 20 )+ _horizontal_radius * Mathf.Sin(i * Mathf.Deg2Rad);
-            
-            z = _cue.transform.position.z;
-            _cue.transform.position = new Vector3(x, y, z);
+            float y =  -_vertical_radius * Mathf.Sin(i * Mathf.Deg2Rad + Mathf.PI);
+            float x = - _horizontal_radius * Mathf.Cos(i * Mathf.Deg2Rad+ Mathf.PI);
+            image.transform.localPosition = new Vector3(x, y, z);
             Debug.Log("post position: " + x + " " + y + " " + z);
         }
         
