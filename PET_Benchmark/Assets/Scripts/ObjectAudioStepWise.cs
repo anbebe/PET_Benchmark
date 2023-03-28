@@ -7,7 +7,7 @@ public class ObjectAudioStepWise : MonoBehaviour
     private AudioSource source;
     private float distance;
     private GameObject participant;
-    
+    [SerializeField] private AudioClip audioSignal;
     [SerializeField] private float closeDelay;
     [SerializeField] private float middleDelay;
     [SerializeField] private float farDelay;
@@ -28,7 +28,7 @@ public class ObjectAudioStepWise : MonoBehaviour
 
     private void PlayOneStep()
     {
-        source.Play();
+        source.PlayOneShot(audioSignal);
         
         distance = Vector3.Distance(participant.transform.position, transform.position);
 
@@ -44,7 +44,7 @@ public class ObjectAudioStepWise : MonoBehaviour
                 delay = closeDelay;
                 break;
             default:
-                delay = 0f;
+                delay = 0.01f;
                 break;
         }
 

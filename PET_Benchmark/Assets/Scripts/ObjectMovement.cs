@@ -7,10 +7,14 @@ using UnityEngine;
 /// </summary>
 public class ObjectMovement : MonoBehaviour
 {
+    private TutorialManager tutorialManager;
+    [SerializeField] private AudioClip errorClip;
     [SerializeField] private float speed;
     [SerializeField] private float destroyDelay;
     private Vector3 targetPosition;
     private Vector3 spawnPosition;
+
+    private AudioSource source;
     public Vector3 TargetPosition
     {
         get => targetPosition;
@@ -33,12 +37,14 @@ public class ObjectMovement : MonoBehaviour
 
     private void Start()
     {
+        tutorialManager = GameObject.Find("TutorialManager").GetComponent<TutorialManager>();
+        source = gameObject.GetComponent<AudioSource>();
         if (isCollisionObject)
         {
             targetPosition = new Vector3(transform.position.x * (-1), 1f, transform.position.z * (-1));
         }
 
-        StartCoroutine(DestroyObject());
+        StartCoroutine(DestroyObject(destroyDelay));
     }
 
     private void Update()
@@ -55,15 +61,24 @@ public class ObjectMovement : MonoBehaviour
             collisionHappened = true;
             GetComponent<ScoreCalculator>().Invoke("AddScoreToTotalScore", 0f);
             
-            Destroy(this.gameObject);
+            if (tutorialManager.tutorialInProgress)
+            {
+                //source.PlayOneShot(errorClip);
+                tutorialManager.ShowErrorScreen();
+            }
+
+            StartCoroutine(DestroyObject(1f));
         }
     }
 
-    private IEnumerator DestroyObject()
+    private IEnumerator DestroyObject(float destroydly)
     {
-        yield return new WaitForSeconds(destroyDelay);
-        
-        GetComponent<ScoreCalculator>().Invoke("AddScoreToTotalScore", 0f);
+        yield return new WaitForSeconds(destroydly);
+
+        if (!tutorialManager.tutorialInProgress)
+        {
+            GetComponent<ScoreCalculator>().Invoke("AddScoreToTotalScore", 0f);
+        }
         
         Destroy(this.gameObject);
     }
