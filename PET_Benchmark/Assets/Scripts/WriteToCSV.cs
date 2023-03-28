@@ -25,7 +25,7 @@ public class WriteToCSV : MonoBehaviour
     {
         Debug.Log("Writing File");
         String sense = ExperimentManager.currentMode.ToString(); 
-        int trialNumber = ExperimentManager.trialNumber;
+        int trialNumber = ExperimentManager.modeIndex;
         Guid userID = ExperimentManager.userGuid;
         String filename = Application.dataPath + "/Data/" + userID + "_Trial_" + trialNumber +"_"+ sense + ".csv";
         String header = "Pattern;ObjectIndex;ObjectSpawnPos;ObjectTargetPos;ObjectDirection;IsCollision;HitPlayer;PlayerScore;PlayerMoves;NewPlayerPos";

@@ -6,11 +6,26 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/TutorialScene.unity
+    path: Assets/Scenes/PreExperiment.unity
     guid: 321c855d28e36e0448eb42aed6ec346d
   - enabled: 1
-    path: Assets/Scenes/MainExperimentScene.unity
-    guid: b6585bd4d817edc46932f625271e2c84
+    path: Assets/Scenes/ExperimentAuditory.unity
+    guid: 9b00136a2a4dff84696d70dd2409b294
+  - enabled: 1
+    path: Assets/Scenes/ExperimentTactile.unity
+    guid: 44bae59492bb73440b5afb1d0b595fbd
+  - enabled: 1
+    path: Assets/Scenes/ExperimentVisual.unity
+    guid: 8905e9dafdc901f4cbed5f32f464261a
+  - enabled: 1
+    path: Assets/Scenes/TutorialAuditory.unity
+    guid: 3a7b176bde4284a4e956c54c0f00e742
+  - enabled: 1
+    path: Assets/Scenes/TutorialTactile.unity
+    guid: 65ccbe5e1f85643449a33b84e9b25370
+  - enabled: 1
+    path: Assets/Scenes/TutorialVisual.unity
+    guid: 6d903f87a3d803e45882101224f63fef
   m_configObjects:
     Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: ef33e79622f63ad4383a57cc720ef821, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 88e0ca182431b1d48ac3b4774b345976, type: 2}

@@ -34,8 +34,10 @@ public class TutorialMenu : MonoBehaviour
         setModeFromDropdown(2, modeChoice3rd);
         
         Debug.Log(ExperimentManager.modeList[0].ToString()  + " " + ExperimentManager.modeList[1].ToString() + " " + ExperimentManager.modeList[2].ToString());
-        preTutorialCanvasContent.SetActive(false);
-        tutorialCanvasContent.SetActive(true);
+        ExperimentManager.StartExperiment();
+        //ExperimentManager.AdvanceExperiment();
+        //preTutorialCanvasContent.SetActive(false);
+        //tutorialCanvasContent.SetActive(true);
     }
     
     //Sets the correct mode in the modeList in the ExperimentManager for the given index
@@ -58,8 +60,8 @@ public class TutorialMenu : MonoBehaviour
     //Loads main Experiment scene and sets current mode
     public void StartExperiment()
     {
-        ExperimentManager.currentMode = ExperimentManager.modeList[0];
-        ExperimentManager.Load(ExperimentManager.Scene.MainExperimentScene);
+        //ExperimentManager.currentMode = ExperimentManager.modeList[0];
+        //ExperimentManager.Load(ExperimentManager.Scene.MainExperimentScene);
     }
     
 }
