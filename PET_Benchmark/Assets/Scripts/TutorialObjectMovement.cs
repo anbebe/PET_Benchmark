@@ -77,11 +77,8 @@ public class TutorialObjectMovement : MonoBehaviour, MovementScript
     {
         yield return new WaitForSeconds(destroydly);
 
-        if (!tutorialManager.tutorialInProgress)
-        {
-            GetComponent<ScoreCalculator>().Invoke("AddScoreToTotalScore", 0f);
-        }
-        
+        GetComponent<ScoreCalculator>().Invoke("AddScoreToTotalScore", 0f);
+
         Destroy(this.gameObject);
     }
 }

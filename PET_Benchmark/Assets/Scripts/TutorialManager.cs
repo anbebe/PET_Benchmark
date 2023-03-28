@@ -101,10 +101,6 @@ public class TutorialManager : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
             errorScreen.GetComponent<Image>().enabled = false;
-            
-            // wait until participant returns to center; TODO: does not seem to work suddenly
-            yield return new WaitUntil(() =>
-                player.transform.position == new Vector3(0, 1.1f, 0));
                 
             // wait before instantiating the next object
             yield return new WaitForSeconds(delay);
