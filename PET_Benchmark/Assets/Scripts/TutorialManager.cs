@@ -22,6 +22,7 @@ public class TutorialManager : MonoBehaviour
     public bool tutorialInProgress;
 
     private GameObject player;
+    private IEnumerator coroutine;
 
     private void Start()
     {
@@ -31,6 +32,8 @@ public class TutorialManager : MonoBehaviour
         paused = false;
         tutorialInProgress = true;
         player = GameObject.FindWithTag("Player");
+        coroutine = SpawnObjects();
+
     }
 
     private void Update()
@@ -44,7 +47,7 @@ public class TutorialManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.I))
         {
-            StopCoroutine(SpawnObjects());
+            StopCoroutine(coroutine);
             StartTutorialPartTwo();
         }
 
@@ -65,6 +68,7 @@ public class TutorialManager : MonoBehaviour
     private void StartTutorialPartOne()
     {
         Debug.Log("Start Tutorial Part 1");
+        obj.GetComponent<MeshRenderer>().enabled = true;
         spawnObjects = true;
         StartCoroutine(SpawnObjects());
     }
@@ -73,7 +77,7 @@ public class TutorialManager : MonoBehaviour
     {
         Debug.Log("Start Tutorial Part 2");
         obj.GetComponent<MeshRenderer>().enabled = false;
-        scoreText.text = "Score: 0";
+        scoreManager.TotalScore = 0f;
         spawnObjects = true;
         StartCoroutine(SpawnObjects());
     }
