@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class ScoreCalculator : MonoBehaviour
@@ -8,14 +9,14 @@ public class ScoreCalculator : MonoBehaviour
     private float score;
     private float scoreOnMovement;
     private bool isCollisionObject;
-    private ScoreManager scoreManager;
+    [SerializeField] private ScoreManager scoreManager;
     private GameObject participant;
 
     private void Start()
     {
         score = 0f;
         scoreOnMovement = 0f;
-        scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
+        scoreManager = GameObject.FindWithTag("ScoreManager").GetComponent<ScoreManager>();
         participant = GameObject.FindWithTag("Player");
         isCollisionObject = GetComponent<ObjectMovement>().IsCollisionObject;
     }

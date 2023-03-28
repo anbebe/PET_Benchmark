@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class ObjectAudio : MonoBehaviour
 {
+    [SerializeField] private AudioClip audioSignal;
     private AudioSource source;
     private float distance;
     private GameObject participant;
@@ -19,6 +20,7 @@ public class ObjectAudio : MonoBehaviour
     {
         source = GetComponent<AudioSource>();
         source.mute = false;
+        source.clip = audioSignal;
         participant = GameObject.Find("Player");
     }
 

@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class ScoreManager : MonoBehaviour
 {
-   private float totalScore;
+   private float totalScore = 0f;
    private List<float> individualScores = new List<float>();
 
    private List<SpawnObjectInfo> spawnObjectList = new List<SpawnObjectInfo>();

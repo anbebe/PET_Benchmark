@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1204683428784586435
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1204683428784586433}
+  - component: {fileID: 1204683428784586432}
+  - component: {fileID: 1204683428784586438}
+  m_Layer: 0
+  m_Name: SpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1204683428784586433
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204683428784586435}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1204683428784586432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204683428784586435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ff75ead5bdd79944a4c6bfd11a1c650, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obj: {fileID: 7638733583878986935, guid: 26a0a306ba2b4434693fb20d43813423, type: 3}
+  delay: 10
+  preparationDelay: 5
+  patternOrder: 010000000200000003000000
+  objPositions1:
+  - {x: -1, y: 1, z: -4}
+  - {x: 0, y: 1, z: 4}
+  - {x: 4, y: 1, z: -0.5}
+  - {x: 3.5, y: 1, z: 3}
+  - {x: -4, y: 1, z: 0}
+  - {x: -2.5, y: 1, z: 4}
+  - {x: 4, y: 1, z: -3}
+  - {x: -4, y: 1, z: -2}
+  - {x: 4, y: 1, z: 2}
+  - {x: 2.5, y: 1, z: 3.5}
+  passIndices1: 020000000400000007000000
+  passTargetPos1:
+  - {x: 0, y: 1, z: -4}
+  - {x: 2.5, y: 1, z: 3.5}
+  - {x: 4, y: 1, z: -2}
+  objPositions2:
+  - {x: -4, y: 1, z: 2}
+  - {x: 4, y: 1, z: 1}
+  - {x: 4, y: 1, z: -2}
+  - {x: 3.5, y: 1, z: 3.5}
+  - {x: 1.5, y: 1, z: -4}
+  - {x: -1, y: 1, z: -4}
+  - {x: 3.5, y: 1, z: 3}
+  - {x: -4, y: 1, z: -2}
+  - {x: -4, y: 1, z: 3}
+  - {x: 1, y: 1, z: -4}
+  passIndices2: 010000000400000008000000
+  passTargetPos2:
+  - {x: -1, y: 1, z: 4}
+  - {x: -4, y: 1, z: 0}
+  - {x: 4, y: 1, z: 3}
+  objPositions3:
+  - {x: 4, y: 1, z: 0}
+  - {x: -4, y: 1, z: 1.5}
+  - {x: -0.5, y: 1, z: -4}
+  - {x: 1, y: 1, z: 4}
+  - {x: -3, y: 1, z: 3.5}
+  - {x: 3, y: 1, z: 3}
+  - {x: 1, y: 1, z: -3.5}
+  - {x: -1, y: 1, z: 4}
+  - {x: 4, y: 1, z: -2.5}
+  - {x: -2.5, y: 1, z: -3}
+  passIndices3: 030000000600000009000000
+  passTargetPos3:
+  - {x: 1, y: 1, z: -4}
+  - {x: -4, y: 1, z: 2}
+  - {x: 0, y: 1, z: 4}
+  instantiatedObj: {fileID: 0}
+--- !u!114 &1204683428784586438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204683428784586435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5813012b9afa7c14981917c6da241e0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
