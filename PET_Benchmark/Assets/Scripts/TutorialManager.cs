@@ -21,6 +21,8 @@ public class TutorialManager : MonoBehaviour
 
     public bool tutorialInProgress;
 
+    private GameObject player;
+
     private void Start()
     {
         errorScreen.GetComponent<Image>().enabled = false;
@@ -28,6 +30,7 @@ public class TutorialManager : MonoBehaviour
         spawnObjects = false;
         paused = false;
         tutorialInProgress = true;
+        player = GameObject.FindWithTag("Player");
     }
 
     private void Update()
@@ -96,7 +99,18 @@ public class TutorialManager : MonoBehaviour
         
         while (spawnObjects)
         {
+            yield return new WaitForSeconds(1f);
             errorScreen.GetComponent<Image>().enabled = false;
+            
+            // wait until participant returns to center; TODO: does not seem to work suddenly
+            yield return new WaitUntil(() =>
+                player.transform.position == new Vector3(0, 1.1f, 0));
+                
+            // wait before instantiating the next object
+            yield return new WaitForSeconds(delay);
+
+            // reset playerMovementCounter for each object
+            player.GetComponent<GridMovement>().PlayerMovementCounter = 0;
 
             Vector2 randomPoint = Random.insideUnitCircle.normalized * 4f;
             Vector3 pos = new Vector3(randomPoint.x, 1f, randomPoint.y);
@@ -115,8 +129,6 @@ public class TutorialManager : MonoBehaviour
             //give the instantiated object some more info that is later saved to CSV
             objMovementScript.SpawnPosition = pos;
             objMovementScript.IsCollisionObject = true;
-
-            yield return new WaitForSeconds(delay);
         }
 
         yield return new WaitUntil(() => spawnObjects);
