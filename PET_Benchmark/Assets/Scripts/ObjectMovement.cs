@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Manages the object movement
 /// </summary>
-public class ObjectMovement : MonoBehaviour
+public class ObjectMovement : MonoBehaviour, MovementScript
 {
     [SerializeField] private float speed;
     [SerializeField] private float destroyDelay;
@@ -32,6 +32,12 @@ public class ObjectMovement : MonoBehaviour
     }
 
     public bool collisionHappened = false;
+
+    public bool CollisionHappened
+    {
+        get => collisionHappened;
+        set => collisionHappened = value;
+    }
 
     private void Start()
     {

@@ -12,13 +12,24 @@ public class ScoreCalculator : MonoBehaviour
     [SerializeField] private ScoreManager scoreManager;
     private GameObject participant;
 
+    private MovementScript objectMovement;
+
     private void Start()
     {
         score = 0f;
         scoreOnMovement = 0f;
         scoreManager = GameObject.FindWithTag("ScoreManager").GetComponent<ScoreManager>();
         participant = GameObject.FindWithTag("Player");
-        isCollisionObject = GetComponent<ObjectMovement>().IsCollisionObject;
+        if (ExperimentManager.isTutorial)
+        {
+            objectMovement = GetComponent<TutorialObjectMovement>();
+        }
+        else
+        {
+            objectMovement = GetComponent<ObjectMovement>();
+        }
+
+        isCollisionObject = objectMovement.IsCollisionObject;
     }
 
     /*private void Update()
@@ -69,7 +80,7 @@ public class ScoreCalculator : MonoBehaviour
     public void AddScoreToTotalScore()
     {
         // if participant collided with the object
-        if (GetComponent<ObjectMovement>().collisionHappened)
+        if (objectMovement.CollisionHappened)
         {
             score = 0f;
         }
@@ -101,8 +112,9 @@ public class ScoreCalculator : MonoBehaviour
         }
 
         //scoreManager.addScore(score);
-        ObjectMovement objMoveScript = GetComponent<ObjectMovement>();
-        scoreManager.addScoreNew(score, participant.GetComponent<GridMovement>().PlayerMovementCounter, isCollisionObject, objMoveScript.collisionHappened, objMoveScript.SpawnPosition, objMoveScript.TargetPosition, participant.transform.position);
+        
+        //ObjectMovement objMoveScript = GetComponent<ObjectMovement>();
+        scoreManager.addScoreNew(score, participant.GetComponent<GridMovement>().PlayerMovementCounter, isCollisionObject, objectMovement.CollisionHappened, objectMovement.SpawnPosition, objectMovement.TargetPosition, participant.transform.position);
         Debug.Log("Current Total Score: " + scoreManager.TotalScore);
     }
 }

@@ -37,6 +37,8 @@ public static class ExperimentManager
     public static List<int> patternOrder1 = new List<int>() { 3, 1, 2 };
     public static List<int> patternOrder2 = new List<int>() { 2, 3, 1 };
 
+    public static bool isTutorial = true; 
+
 
     //Use SceneManager to load a scene
     public static void Load(Scene scene)
@@ -59,6 +61,11 @@ public static class ExperimentManager
             {
                 modeIndex++;
                 currentMode = modeList[modeIndex];
+                isTutorial = true;
+            }
+            else
+            {
+                isTutorial = false;
             }
             SceneManager.LoadScene(Scenes[0]);
             Scenes.RemoveAt(0);

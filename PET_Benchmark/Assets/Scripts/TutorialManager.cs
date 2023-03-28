@@ -100,7 +100,21 @@ public class TutorialManager : MonoBehaviour
 
             Vector2 randomPoint = Random.insideUnitCircle.normalized * 4f;
             Vector3 pos = new Vector3(randomPoint.x, 1f, randomPoint.y);
-            Instantiate(obj, pos, Quaternion.identity, this.transform);
+            GameObject instantiatedObj = Instantiate(obj, pos, Quaternion.identity, this.transform);
+            
+            MovementScript objMovementScript;
+            if (ExperimentManager.isTutorial)
+            {
+                objMovementScript = instantiatedObj.GetComponent<TutorialObjectMovement>();
+            }
+            else
+            {
+                objMovementScript = instantiatedObj.GetComponent<ObjectMovement>();
+            }
+                
+            //give the instantiated object some more info that is later saved to CSV
+            objMovementScript.SpawnPosition = pos;
+            objMovementScript.IsCollisionObject = true;
 
             yield return new WaitForSeconds(delay);
         }

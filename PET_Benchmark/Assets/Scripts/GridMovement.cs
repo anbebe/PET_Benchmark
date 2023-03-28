@@ -20,7 +20,15 @@ public class GridMovement : MonoBehaviour
     private void Start()
     {
         playerMovementCounter = 0;
-        spawnManager = GameObject.Find("SpawnManager");
+        if (ExperimentManager.isTutorial)
+        {
+            spawnManager = GameObject.Find("TutorialManager");
+        }
+        else
+        {
+            spawnManager = GameObject.Find("SpawnManager");
+            
+        }
     }
 
     // Update is called once per frame
@@ -33,9 +41,10 @@ public class GridMovement : MonoBehaviour
                 this.transform.position = grid[i].transform.position + new Vector3(0,1.1f,0);
                 playerMovementCounter += 1;
                 Debug.Log("Current Player Movement Counter: " + playerMovementCounter);
-                if (spawnManager.GetComponentInChildren<ScoreCalculator>() != null)
+                ScoreCalculator calc = spawnManager.GetComponentInChildren<ScoreCalculator>();
+                if (calc != null)
                 {
-                    GameObject.Find("SpawnManager").GetComponentInChildren<ScoreCalculator>().Invoke("SetCurrentScore", 0f);
+                    calc.Invoke("SetCurrentScore", 0f);
                 }
             }
         }

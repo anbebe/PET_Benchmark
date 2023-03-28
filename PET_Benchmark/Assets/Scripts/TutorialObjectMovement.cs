@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TutorialObjectMovement : MonoBehaviour
+public class TutorialObjectMovement : MonoBehaviour, MovementScript
 {
     private TutorialManager tutorialManager;
     [SerializeField] private AudioClip errorClip;
@@ -31,6 +31,11 @@ public class TutorialObjectMovement : MonoBehaviour
     }
 
     public bool collisionHappened = false;
+    public bool CollisionHappened
+    {
+        get => collisionHappened;
+        set => collisionHappened = value;
+    }
 
     private void Start()
     {

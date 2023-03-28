@@ -95,9 +95,18 @@ public class ObjectInstantiator : MonoBehaviour
             
                 // instantiate object
                 instantiatedObj = Instantiate(obj, pos, Quaternion.identity, this.transform);
-                Debug.Log(("inst"));
                 //get the script here so there is not as many GetComponent calls to the same script
-                ObjectMovement objMovementScript = instantiatedObj.GetComponent<ObjectMovement>();
+                MovementScript objMovementScript;
+                if (ExperimentManager.isTutorial)
+                {
+                    objMovementScript = instantiatedObj.GetComponent<TutorialObjectMovement>();
+                    
+                }
+                else
+                {
+                    objMovementScript = instantiatedObj.GetComponent<ObjectMovement>();
+                    
+                }
                 
                 //give the instantiated object some more info that is later saved to CSV
                 objMovementScript.SpawnPosition = pos;
