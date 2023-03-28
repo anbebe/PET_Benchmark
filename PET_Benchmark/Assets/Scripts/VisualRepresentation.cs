@@ -26,10 +26,7 @@ public class VisualRepresentation : MonoBehaviour
         Debug.Log("center: " + _canvas.pixelRect.center);
         Debug.Log("height: " + _canvas.pixelRect.height/_canvas.referencePixelsPerUnit);
         Debug.Log("width: " + _canvas.pixelRect.width/_canvas.referencePixelsPerUnit);
-        
-        Debug.Log("pixels per unit" + _canvas.referencePixelsPerUnit);
-        
-        // radius = Mathf.Min(Screen.width/2, Screen.height/2);
+
         _horizontal_radius = _canvas.pixelRect.center.x/_canvas.referencePixelsPerUnit - 0.5f;
         _vertical_radius = _canvas.pixelRect.center.y/_canvas.referencePixelsPerUnit - 1f;
 
