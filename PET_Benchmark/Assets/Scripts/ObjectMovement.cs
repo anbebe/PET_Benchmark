@@ -63,6 +63,7 @@ public class ObjectMovement : MonoBehaviour
             
             if (tutorialManager.tutorialInProgress)
             {
+                Debug.Log("IsError");
                 //source.PlayOneShot(errorClip);
                 tutorialManager.ShowErrorScreen();
             }

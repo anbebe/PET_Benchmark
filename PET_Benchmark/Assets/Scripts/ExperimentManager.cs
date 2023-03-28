@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = System.Random;
 
 /*
  * A Static Experiment manager, that acts as a Scene Loader, and also holds and manages most of the global data*
@@ -31,6 +32,10 @@ public static class ExperimentManager
     public static int modeIndex = -1;
 
     private static List<String> Scenes = new List<String>();
+
+    public static List<int> patternOrder0 = new List<int>() { 1, 2, 3 };
+    public static List<int> patternOrder1 = new List<int>() { 3, 1, 2 };
+    public static List<int> patternOrder2 = new List<int>() { 2, 3, 1 };
 
 
     //Use SceneManager to load a scene

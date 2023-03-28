@@ -50,6 +50,19 @@ public class ObjectInstantiator : MonoBehaviour
         StartCoroutine(SpawnObjects());
         
         player = GameObject.FindWithTag("Player");
+
+        switch (ExperimentManager.modeIndex)
+        {
+            case 0:
+                patternOrder = ExperimentManager.patternOrder0;
+                break;
+            case 1:
+                patternOrder = ExperimentManager.patternOrder1;
+                break;
+            case 2:
+                patternOrder = ExperimentManager.patternOrder2;
+                break;
+        }
     }
 
     private IEnumerator SpawnObjects()
