@@ -56,17 +56,18 @@ public class TutorialObjectMovement : MonoBehaviour, MovementScript
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Collision --> Object Score: 0");
+        Debug.Log(other.gameObject.name);
         if (other.gameObject.CompareTag("Player"))
         {
+            Debug.Log("Collision --> Object Score: 0");
             collisionHappened = true;
-            GetComponent<ScoreCalculator>().Invoke("AddScoreToTotalScore", 0f);
+            //GetComponent<ScoreCalculator>().Invoke("AddScoreToTotalScore", 0f);
             
             if (tutorialManager.tutorialInProgress)
             {
                 Debug.Log("IsError");
                 //source.PlayOneShot(errorClip);
-                tutorialManager.ShowErrorScreen();
+                tutorialManager.ShowErrorScreen(true);
             }
 
             StartCoroutine(DestroyObject(1f));
@@ -78,6 +79,7 @@ public class TutorialObjectMovement : MonoBehaviour, MovementScript
         yield return new WaitForSeconds(destroydly);
 
         GetComponent<ScoreCalculator>().Invoke("AddScoreToTotalScore", 0f);
+        tutorialManager.ShowErrorScreen(false);
 
         Destroy(this.gameObject);
     }

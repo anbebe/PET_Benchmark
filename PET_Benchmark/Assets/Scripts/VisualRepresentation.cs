@@ -23,17 +23,17 @@ public class VisualRepresentation : MonoBehaviour
         _player = GameObject.Find("Player");
         //img.color = new Color(1, 1, 0f);
         
-        Debug.Log("center: " + _canvas.pixelRect.center);
+        /*Debug.Log("center: " + _canvas.pixelRect.center);
         Debug.Log("height: " + _canvas.pixelRect.height/_canvas.referencePixelsPerUnit);
         Debug.Log("width: " + _canvas.pixelRect.width/_canvas.referencePixelsPerUnit);
-
-        _horizontal_radius = _canvas.pixelRect.center.x/_canvas.referencePixelsPerUnit - 0.5f;
-        _vertical_radius = _canvas.pixelRect.center.y/_canvas.referencePixelsPerUnit - 1f;
+*/
+        _horizontal_radius = _canvas.pixelRect.center.x/_canvas.referencePixelsPerUnit - 5f;
+        _vertical_radius = _canvas.pixelRect.center.y/_canvas.referencePixelsPerUnit - 1.5f;
 
         rectTransform = image.GetComponent<RectTransform>();
 
-        Debug.Log("x radius" + rectTransform.transform.position);
-        Debug.Log("y radius" + image.transform.localPosition);
+       // Debug.Log("x radius" + rectTransform.transform.position);
+       // Debug.Log("y radius" + image.transform.localPosition);
 
         var pos_x = 0;
         var pos_y = 0;
@@ -69,7 +69,7 @@ public class VisualRepresentation : MonoBehaviour
 
             float rad = (float)radians - Mathf.PI - angle ;
             
-            Debug.Log("radian: " + radians);
+            //Debug.Log("radian: " + radians);
 
             float y =  - _vertical_radius * Mathf.Sin(rad);
             float x = - _horizontal_radius * Mathf.Cos(rad);
@@ -124,7 +124,7 @@ public class VisualRepresentation : MonoBehaviour
             float y =  -_vertical_radius * Mathf.Sin(i * Mathf.Deg2Rad + Mathf.PI);
             float x = - _horizontal_radius * Mathf.Cos(i * Mathf.Deg2Rad+ Mathf.PI);
             image.transform.localPosition = new Vector3(x, y, z);
-            Debug.Log("post position: " + x + " " + y + " " + z);
+            //Debug.Log("post position: " + x + " " + y + " " + z);
         }
         
     }

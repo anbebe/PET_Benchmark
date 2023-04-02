@@ -42,7 +42,7 @@ public class VibrationTest : MonoBehaviour
     {
         if (other.CompareTag("Obstacle"))
         {
-            Debug.Log("collision enter");
+            //Debug.Log("collision enter");
             Array.Clear(motors, 0, motors.Length);
             Vector3 direction = (new Vector3(other.transform.position.x,
                 this.transform.position.y, other.transform.position.z) - this.transform.position);
@@ -50,12 +50,12 @@ public class VibrationTest : MonoBehaviour
             timer = distance; 
             float intensity = 100 - 100 * distance;
 
-            Debug.DrawRay(this.transform.position, direction, Color.red);
+            //Debug.DrawRay(this.transform.position, direction, Color.red);
             
             RaycastHit[] hit = Physics.SphereCastAll(this.transform.position, 0.3f,direction, 10, sensorLayer, QueryTriggerInteraction.Collide); 
             for (int i = 0; i< hit.Length; i++)
             {
-                Debug.Log(hit[i].transform.gameObject.name);
+                //Debug.Log(hit[i].transform.gameObject.name);
                 foreach (var motor in hit[i].transform.gameObject.GetComponent<SensorData>().motors)
                 {
                     motors[motor] = (int) intensity;
@@ -87,12 +87,12 @@ public class VibrationTest : MonoBehaviour
             distance = Mathf.Abs(direction.magnitude) -1 ;
             float intensity = 100 - 100 * distance;
 
-            Debug.DrawRay(this.transform.position, direction, Color.red);
+            //Debug.DrawRay(this.transform.position, direction, Color.red);
             
             RaycastHit[] hit = Physics.SphereCastAll(this.transform.position, 0.3f,direction, 10, sensorLayer, QueryTriggerInteraction.Collide); 
             for (int i = 0; i< hit.Length; i++)
             {
-                Debug.Log(hit[i].transform.gameObject.name);
+                //Debug.Log(hit[i].transform.gameObject.name);
                 foreach (var motor in hit[i].transform.gameObject.GetComponent<SensorData>().motors)
                 {
                     motors[motor] = (int) intensity;

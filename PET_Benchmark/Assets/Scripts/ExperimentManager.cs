@@ -14,7 +14,7 @@ public static class ExperimentManager
     //Public enumerator defining the available scenes. 
     public enum Scene
     {
-        PreExperiment, ExperimentAuditory, ExperimentTactile, ExperimentVisual, TutorialAuditory, TutorialTactile, TutorialVisual
+        PreExperiment, ExperimentAuditory, ExperimentTactile, ExperimentVisual, TutorialAuditory, TutorialTactile, TutorialVisual, PostExperiment
     }
 
     //Public enumerator defining the potential modes of the experiment. 
@@ -69,6 +69,10 @@ public static class ExperimentManager
             }
             SceneManager.LoadScene(Scenes[0]);
             Scenes.RemoveAt(0);
+        }
+        else
+        {
+            SceneManager.LoadScene(ExperimentManager.Scene.PostExperiment.ToString());
         }
     }
 

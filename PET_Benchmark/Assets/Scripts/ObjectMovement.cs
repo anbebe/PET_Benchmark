@@ -57,11 +57,11 @@ public class ObjectMovement : MonoBehaviour, MovementScript
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Collision --> Object Score: 0");
         if (other.gameObject.CompareTag("Player"))
         {
+            Debug.Log("Collision --> Object Score: 0");
             collisionHappened = true;
-            GetComponent<ScoreCalculator>().Invoke("AddScoreToTotalScore", 0f);
+            //GetComponent<ScoreCalculator>().Invoke("AddScoreToTotalScore", 0f);
 
             //TODO: change anything after collision?
         }

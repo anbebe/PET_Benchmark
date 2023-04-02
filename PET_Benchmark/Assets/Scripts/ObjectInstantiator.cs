@@ -79,8 +79,8 @@ public class ObjectInstantiator : MonoBehaviour
             {
                 Debug.Log(player.transform.position);
                 // wait until participant returns to center; TODO: does not seem to work suddenly
-                yield return new WaitUntil(() =>
-                    player.transform.position == new Vector3(0, 1.1f, 0));
+                //yield return new WaitUntil(() =>
+                    //player.transform.position == new Vector3(0, 1.1f, 0));
                 
                 // wait before instantiating the next object
                 yield return new WaitForSeconds(delay);
@@ -135,6 +135,7 @@ public class ObjectInstantiator : MonoBehaviour
         
         // show total score at the end of the experiment (after each of the 3 patterns were played)
         GameObject.Find("ScoreManager").GetComponent<ScoreManager>().Invoke("ShowTotalScore", 0f);
+        ExperimentManager.AdvanceExperiment();
     }
 
     // takes the coordinates of the general point (direction) and calculates the coordinates of the corresponding point on the circle

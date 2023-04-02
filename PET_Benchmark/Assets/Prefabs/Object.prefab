@@ -112,7 +112,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 262681dde400742429dcfafd13084ea2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  errorClip: {fileID: 8300000, guid: 0dfa4e3dca99d0c44892a06ca052f061, type: 3}
   speed: 3
   destroyDelay: 4
   collisionHappened: 0
@@ -128,6 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffec14af5d4648942906a0aa530128f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreManager: {fileID: 0}
 --- !u!82 &-288476449909847908
 AudioSource:
   m_ObjectHideFlags: 0
@@ -139,7 +139,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0dfa4e3dca99d0c44892a06ca052f061, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

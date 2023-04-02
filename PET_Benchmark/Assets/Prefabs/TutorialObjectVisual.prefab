@@ -12,13 +12,12 @@ GameObject:
   - component: {fileID: 7638733583878986922}
   - component: {fileID: 7638733583878986933}
   - component: {fileID: 7638733583878986932}
-  - component: {fileID: -5742748677595342005}
-  - component: {fileID: 3403486156140046719}
-  - component: {fileID: 7769896993039474180}
-  - component: {fileID: 2845639631744802479}
+  - component: {fileID: 2685982609917383237}
+  - component: {fileID: -288476449909847908}
+  - component: {fileID: -9097121017640388073}
   m_Layer: 0
-  m_Name: TutorialStepWiseAudioObject
-  m_TagString: Untagged
+  m_Name: TutorialObjectVisual
+  m_TagString: MovingObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,7 +100,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-5742748677595342005
+--- !u!114 &2685982609917383237
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,14 +109,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7638733583878986935}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de58debe2e29f9a4c9c9a43a314911be, type: 3}
+  m_Script: {fileID: 11500000, guid: ffec14af5d4648942906a0aa530128f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSignal: {fileID: 8300000, guid: b04869d8ee0e1194491af2cca76fe9c1, type: 3}
-  closeDelay: 0.1
-  middleDelay: 0.3
-  farDelay: 0.5
---- !u!82 &3403486156140046719
+  scoreManager: {fileID: 0}
+--- !u!82 &-288476449909847908
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,8 +123,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b04869d8ee0e1194491af2cca76fe9c1, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 0dfa4e3dca99d0c44892a06ca052f061, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -213,20 +209,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7769896993039474180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7638733583878986935}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffec14af5d4648942906a0aa530128f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreManager: {fileID: 3865447281950341060, guid: e1559b8a690943c4096ba5261e9c58e3, type: 3}
---- !u!114 &2845639631744802479
+--- !u!114 &-9097121017640388073
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

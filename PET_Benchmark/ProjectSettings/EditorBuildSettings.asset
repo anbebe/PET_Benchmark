@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TutorialVisual.unity
     guid: 6d903f87a3d803e45882101224f63fef
+  - enabled: 1
+    path: Assets/Scenes/PostExperiment.unity
+    guid: b9db75f981aaf004f9285b24a26ae45e
   m_configObjects:
     Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: ef33e79622f63ad4383a57cc720ef821, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 88e0ca182431b1d48ac3b4774b345976, type: 2}

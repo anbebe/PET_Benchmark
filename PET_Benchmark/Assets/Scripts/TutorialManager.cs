@@ -22,7 +22,7 @@ public class TutorialManager : MonoBehaviour
     public bool tutorialInProgress;
 
     private GameObject player;
-    private IEnumerator coroutine;
+    private Coroutine coroutine;
 
     private void Start()
     {
@@ -32,7 +32,7 @@ public class TutorialManager : MonoBehaviour
         paused = false;
         tutorialInProgress = true;
         player = GameObject.FindWithTag("Player");
-        coroutine = SpawnObjects();
+        //coroutine = SpawnObjects();
 
     }
 
@@ -70,7 +70,7 @@ public class TutorialManager : MonoBehaviour
         Debug.Log("Start Tutorial Part 1");
         obj.GetComponent<MeshRenderer>().enabled = true;
         spawnObjects = true;
-        StartCoroutine(SpawnObjects());
+        coroutine = StartCoroutine(SpawnObjects());
     }
 
     private void StartTutorialPartTwo()
@@ -134,8 +134,8 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitUntil(() => spawnObjects);
     }
 
-    public void ShowErrorScreen()
+    public void ShowErrorScreen(bool turnOn)
     {
-        errorScreen.GetComponent<Image>().enabled = true;
+        errorScreen.GetComponent<Image>().enabled = turnOn;
     }
 }
