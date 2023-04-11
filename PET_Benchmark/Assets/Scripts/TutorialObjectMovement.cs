@@ -11,6 +11,8 @@ public class TutorialObjectMovement : MonoBehaviour, MovementScript
     private Vector3 targetPosition;
     private Vector3 spawnPosition;
 
+    private GameObject player;
+
     private AudioSource source;
     public Vector3 TargetPosition
     {
@@ -39,6 +41,7 @@ public class TutorialObjectMovement : MonoBehaviour, MovementScript
 
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         tutorialManager = GameObject.Find("TutorialManager").GetComponent<TutorialManager>();
         source = gameObject.GetComponent<AudioSource>();
         if (isCollisionObject)
@@ -78,9 +81,15 @@ public class TutorialObjectMovement : MonoBehaviour, MovementScript
     {
         yield return new WaitForSeconds(destroydly);
 
+        if (ExperimentManager.currentMode == ExperimentManager.ExperimentMode.Tactile)
+        {
+            GameObject.FindGameObjectWithTag("Vest").GetComponent<VibrationTest>().ClearMotors();
+        }
         GetComponent<ScoreCalculator>().Invoke("AddScoreToTotalScore", 0f);
         tutorialManager.ShowErrorScreen(false);
 
         Destroy(this.gameObject);
+
+        player.transform.position = new Vector3(0f, 1.1f, 0f);
     }
 }

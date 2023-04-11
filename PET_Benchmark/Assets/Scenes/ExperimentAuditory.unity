@@ -345,13 +345,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1576292900}
   - component: {fileID: 1576292899}
+  - component: {fileID: 1576292901}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1576292899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -432,6 +433,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1576292901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576292898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5813012b9afa7c14981917c6da241e0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1588426522
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -515,6 +528,10 @@ PrefabInstance:
     - target: {fileID: 1007728392768680285, guid: 9c66f5aa1c8cac74f80496f9c434b9fa, type: 3}
       propertyPath: m_Name
       value: SmallSpawnManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1007728392768680285, guid: 9c66f5aa1c8cac74f80496f9c434b9fa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1007728392768680286, guid: 9c66f5aa1c8cac74f80496f9c434b9fa, type: 3}
       propertyPath: obj

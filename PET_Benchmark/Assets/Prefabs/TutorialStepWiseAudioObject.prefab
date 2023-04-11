@@ -53,7 +53,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7638733583878986935}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -239,6 +239,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   errorClip: {fileID: 8300000, guid: 0dfa4e3dca99d0c44892a06ca052f061, type: 3}
-  speed: 3
+  speed: 1.5
   destroyDelay: 4
   collisionHappened: 0

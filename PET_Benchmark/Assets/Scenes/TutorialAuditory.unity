@@ -1028,7 +1028,7 @@ PrefabInstance:
       objectReference: {fileID: 7638733583878986935, guid: 72cad6ad1bb5ba74baa17fda35514d78, type: 3}
     - target: {fileID: 3125828840217750281, guid: 9f3e6c4491386a245b21d5c6d6993e39, type: 3}
       propertyPath: delay
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3125828840217750281, guid: 9f3e6c4491386a245b21d5c6d6993e39, type: 3}
       propertyPath: scoreText

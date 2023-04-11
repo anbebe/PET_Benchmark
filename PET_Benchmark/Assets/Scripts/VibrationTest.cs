@@ -109,8 +109,14 @@ public class VibrationTest : MonoBehaviour
     {
         if (other.CompareTag("Obstacle"))
         {
-            Array.Clear(motors, 0, motors.Length);
+            ClearMotors();
             //Debug.Log("collision end");
         }
+    }
+
+    public void ClearMotors()
+    {
+        
+        Array.Clear(motors, 0, motors.Length);
     }
 }

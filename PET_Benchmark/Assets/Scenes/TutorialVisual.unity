@@ -906,7 +906,7 @@ PrefabInstance:
       objectReference: {fileID: 7638733583878986935, guid: 8331245f5859d024a887f588d11ffd45, type: 3}
     - target: {fileID: 3125828840217750281, guid: 9f3e6c4491386a245b21d5c6d6993e39, type: 3}
       propertyPath: delay
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3125828840217750281, guid: 9f3e6c4491386a245b21d5c6d6993e39, type: 3}
       propertyPath: scoreText
@@ -1423,7 +1423,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1651291288}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -597.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

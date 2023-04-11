@@ -11,6 +11,7 @@ public class ObjectMovement : MonoBehaviour, MovementScript
     [SerializeField] private float destroyDelay;
     private Vector3 targetPosition;
     private Vector3 spawnPosition;
+    private GameObject player;
 
     private AudioSource source;
     public Vector3 TargetPosition
@@ -41,6 +42,7 @@ public class ObjectMovement : MonoBehaviour, MovementScript
 
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         source = gameObject.GetComponent<AudioSource>();
         if (isCollisionObject)
         {
@@ -70,9 +72,15 @@ public class ObjectMovement : MonoBehaviour, MovementScript
     private IEnumerator DestroyObject(float destroydly)
     {
         yield return new WaitForSeconds(destroydly);
-        
+
+        if (ExperimentManager.currentMode == ExperimentManager.ExperimentMode.Tactile)
+        {
+            GameObject.FindGameObjectWithTag("Vest").GetComponent<VibrationTest>().ClearMotors();
+        }
         GetComponent<ScoreCalculator>().Invoke("AddScoreToTotalScore", 0f);
 
         Destroy(this.gameObject);
+
+        player.transform.position = new Vector3(0f, 1.1f, 0f);
     }
 }

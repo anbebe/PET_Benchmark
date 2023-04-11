@@ -62,6 +62,13 @@ public class GridMovement : MonoBehaviour
                     new Vector3(trackpad.x, 0.0f, trackpad.y), out hit, 2.0f, gridMask))
             {
                 //Debug.Log(hit.transform.gameObject.name);
+                playerMovementCounter += 1;
+                Debug.Log("Current Player Movement Counter: " + playerMovementCounter);
+                ScoreCalculator calc = spawnManager.GetComponentInChildren<ScoreCalculator>();
+                if (calc != null)
+                {
+                    calc.Invoke("SetCurrentScore", 0f);
+                }
                 this.transform.position = hit.transform.position + new Vector3(0,1.1f,0);
                 hasMoved = true;
                 StartCoroutine(Delay());

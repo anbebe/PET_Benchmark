@@ -45,8 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 0}
-  delay: 0
-  preparationDelay: 0
+  delay: 5
+  preparationDelay: 4
   scoreManager: {fileID: 0}
   scoreText: {fileID: 0}
+  errorScreen: {fileID: 0}
   tutorialInProgress: 0

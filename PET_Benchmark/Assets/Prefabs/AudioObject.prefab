@@ -113,9 +113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 262681dde400742429dcfafd13084ea2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  errorClip: {fileID: 8300000, guid: 0dfa4e3dca99d0c44892a06ca052f061, type: 3}
-  speed: 3
-  destroyDelay: 3
+  speed: 1.5
+  destroyDelay: 4
   collisionHappened: 0
 --- !u!114 &-3386583810617810897
 MonoBehaviour:
@@ -148,12 +147,12 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 495.0495
-  MaxDistance: 500
+  Priority: 135
+  DopplerLevel: 0
+  MinDistance: 3.5
+  MaxDistance: 4
   Pan2D: 0
-  rolloffMode: 1
+  rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -201,7 +200,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.033333335
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -238,3 +237,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffec14af5d4648942906a0aa530128f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreManager: {fileID: 0}

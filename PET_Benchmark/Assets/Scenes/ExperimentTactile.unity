@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallSpawnManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1007728392768680285, guid: 9c66f5aa1c8cac74f80496f9c434b9fa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1007728392768680287, guid: 9c66f5aa1c8cac74f80496f9c434b9fa, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -356,7 +360,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5002787697411039767, guid: 7b5e4b4e2b6cb034789a562769cf3986, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Vest
       objectReference: {fileID: 0}
     - target: {fileID: 5002787697411039787, guid: 7b5e4b4e2b6cb034789a562769cf3986, type: 3}
       propertyPath: m_Enabled
@@ -414,11 +418,16 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5249912919871588511, guid: 7b5e4b4e2b6cb034789a562769cf3986, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5481439970271996107, guid: 7b5e4b4e2b6cb034789a562769cf3986, type: 3}
       propertyPath: m_Radius
       value: 1.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5249912919871588511, guid: 7b5e4b4e2b6cb034789a562769cf3986, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7b5e4b4e2b6cb034789a562769cf3986, type: 3}
 --- !u!1 &321873196 stripped
 GameObject:
@@ -910,7 +919,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1204683428784586435, guid: 63be1e7550a29344b8b0069427ef9215, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63be1e7550a29344b8b0069427ef9215, type: 3}
