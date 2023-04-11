@@ -331,51 +331,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f8a6d296ed5b0848815fa9dc9465548, type: 3}
---- !u!1 &285127467 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1673874772569732111, guid: 8f8a6d296ed5b0848815fa9dc9465548, type: 3}
-  m_PrefabInstance: {fileID: 285127466}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &285127468 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1673874773163233307, guid: 8f8a6d296ed5b0848815fa9dc9465548, type: 3}
-  m_PrefabInstance: {fileID: 285127466}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &285127469 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1673874771838225373, guid: 8f8a6d296ed5b0848815fa9dc9465548, type: 3}
-  m_PrefabInstance: {fileID: 285127466}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &285127470 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1673874773310654918, guid: 8f8a6d296ed5b0848815fa9dc9465548, type: 3}
-  m_PrefabInstance: {fileID: 285127466}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &285127471 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1673874771979230486, guid: 8f8a6d296ed5b0848815fa9dc9465548, type: 3}
-  m_PrefabInstance: {fileID: 285127466}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &285127472 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1673874772738295658, guid: 8f8a6d296ed5b0848815fa9dc9465548, type: 3}
-  m_PrefabInstance: {fileID: 285127466}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &285127473 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1673874773617584195, guid: 8f8a6d296ed5b0848815fa9dc9465548, type: 3}
-  m_PrefabInstance: {fileID: 285127466}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &285127474 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1673874771872172964, guid: 8f8a6d296ed5b0848815fa9dc9465548, type: 3}
-  m_PrefabInstance: {fileID: 285127466}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &285127475 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1673874772221981444, guid: 8f8a6d296ed5b0848815fa9dc9465548, type: 3}
-  m_PrefabInstance: {fileID: 285127466}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &321873195
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -383,6 +338,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 465404774709313417, guid: 7b5e4b4e2b6cb034789a562769cf3986, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5002787697411039764, guid: 7b5e4b4e2b6cb034789a562769cf3986, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.002
@@ -398,6 +357,10 @@ PrefabInstance:
     - target: {fileID: 5002787697411039767, guid: 7b5e4b4e2b6cb034789a562769cf3986, type: 3}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 5002787697411039787, guid: 7b5e4b4e2b6cb034789a562769cf3986, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5002787697989855841, guid: 7b5e4b4e2b6cb034789a562769cf3986, type: 3}
       propertyPath: m_RootOrder
@@ -462,28 +425,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5002787697990195737, guid: 7b5e4b4e2b6cb034789a562769cf3986, type: 3}
   m_PrefabInstance: {fileID: 321873195}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &321873197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 321873196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80b98fdf6852bfb43b3f700c62dfc0d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grid:
-  - {fileID: 285127475}
-  - {fileID: 285127474}
-  - {fileID: 285127473}
-  - {fileID: 285127472}
-  - {fileID: 285127471}
-  - {fileID: 285127470}
-  - {fileID: 285127469}
-  - {fileID: 285127468}
-  - {fileID: 285127467}
 --- !u!136 &321873198
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -675,7 +616,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &660173178
 BoxCollider:
   m_ObjectHideFlags: 0

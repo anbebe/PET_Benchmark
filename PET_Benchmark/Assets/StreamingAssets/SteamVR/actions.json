@@ -90,6 +90,14 @@
     {
       "name": "/actions/Movement/in/TakeStep",
       "type": "vector2"
+    },
+    {
+      "name": "/actions/Movement/in/Tutorial1",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/Movement/in/Tutorial2",
+      "type": "boolean"
     }
   ],
   "action_sets": [

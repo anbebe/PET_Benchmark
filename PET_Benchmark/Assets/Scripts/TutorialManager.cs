@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Valve.VR;
 using Random = UnityEngine.Random;
 
 public class TutorialManager : MonoBehaviour
@@ -24,6 +25,9 @@ public class TutorialManager : MonoBehaviour
     private GameObject player;
     private Coroutine coroutine;
 
+    private bool t1_InProgress = false;
+    private bool t2_InProgress = false;
+
     private void Start()
     {
         errorScreen.GetComponent<Image>().enabled = false;
@@ -39,16 +43,43 @@ public class TutorialManager : MonoBehaviour
     private void Update()
     {
         scoreText.text = "Score: " + Math.Round(scoreManager.TotalScore);
-        
-        if (Input.GetKeyDown(KeyCode.T))
+
+       if (SteamVR_Actions.movement_Tutorial1.GetStateDown(SteamVR_Input_Sources.Any) || Input.GetKeyDown(KeyCode.T))
         {
-            StartTutorialPartOne();
+            t2_InProgress = false;
+            if (t1_InProgress)
+            {
+                StopCoroutine(coroutine);
+                t1_InProgress = false;
+            }
+            else
+            {
+                if (coroutine != null)
+                {
+                    StopCoroutine(coroutine);
+                }
+                t1_InProgress = true;
+                StartTutorialPartOne();
+            }
         }
 
-        if (Input.GetKeyDown(KeyCode.I))
+        if (SteamVR_Actions.movement_Tutorial2.GetStateDown(SteamVR_Input_Sources.Any) || Input.GetKeyDown(KeyCode.I))
         {
-            StopCoroutine(coroutine);
-            StartTutorialPartTwo();
+            t1_InProgress = false;
+            if (t2_InProgress)
+            {
+                StopCoroutine(coroutine);
+                t2_InProgress = false;
+            }
+            else
+            {
+                if (coroutine != null)
+                {
+                    StopCoroutine(coroutine);
+                }
+                t2_InProgress = true;
+                StartTutorialPartTwo();
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.P))
@@ -79,7 +110,7 @@ public class TutorialManager : MonoBehaviour
         obj.GetComponent<MeshRenderer>().enabled = false;
         scoreManager.TotalScore = 0f;
         spawnObjects = true;
-        StartCoroutine(SpawnObjects());
+        coroutine = StartCoroutine(SpawnObjects());
     }
 
     private void PauseTutorial()

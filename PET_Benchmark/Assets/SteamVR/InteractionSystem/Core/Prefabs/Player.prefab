@@ -327,16 +327,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80b98fdf6852bfb43b3f700c62dfc0d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grid:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  trackpad: {x: 0, y: 0}
+  gridMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &109154
 GameObject:
   m_ObjectHideFlags: 0
@@ -1369,9 +1363,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionSet:
-    actionSetPath: /actions/default
+    actionSetPath: /actions/Movement
   forSources: 0
-  disableAllOtherActionSets: 0
+  disableAllOtherActionSets: 1
   activateOnStart: 1
   deactivateOnDestroy: 1
   initialPriority: 0

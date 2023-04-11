@@ -24,5 +24,21 @@ namespace Valve.VR
                 return SteamVR_Actions.movement_TakeStep;
             }
         }
+        
+        public virtual SteamVR_Action_Boolean Tutorial1
+        {
+            get
+            {
+                return SteamVR_Actions.movement_Tutorial1;
+            }
+        }
+        
+        public virtual SteamVR_Action_Boolean Tutorial2
+        {
+            get
+            {
+                return SteamVR_Actions.movement_Tutorial2;
+            }
+        }
     }
 }

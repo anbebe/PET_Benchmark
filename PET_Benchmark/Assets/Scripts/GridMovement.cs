@@ -8,13 +8,10 @@ using Valve.VR;
 
 public class GridMovement : MonoBehaviour
 {
-    public SteamVR_Action_Boolean movePressed;
-    public SteamVR_Action_Vector2 moveAction;
-    public SteamVR_Input_Sources handType;
     public Vector2 trackpad;
     public LayerMask gridMask;
     
-    public GameObject[] grid = new GameObject[9];
+    //public GameObject[] grid = new GameObject[9];
     private int playerMovementCounter;
 
     private bool hasMoved = false; 
@@ -43,6 +40,8 @@ public class GridMovement : MonoBehaviour
     private void updateInput()
     {
         trackpad = SteamVR_Actions.movement_TakeStep.GetAxis(SteamVR_Input_Sources.Any);
+       // Debug.Log("A Down: " + SteamVR_Actions.movement_Tutorial1.GetStateDown(SteamVR_Input_Sources.Any));
+       // Debug.Log(SteamVR_Input.GetStateDown("Tutorial1", SteamVR_Input_Sources.Any));
         //Debug.Log(trackpad);
     }
 

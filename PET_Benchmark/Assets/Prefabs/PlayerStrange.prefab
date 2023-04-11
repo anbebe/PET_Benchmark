@@ -1007,9 +1007,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionSet:
-    actionSetPath: /actions/default
+    actionSetPath: /actions/Movement
   forSources: 0
-  disableAllOtherActionSets: 0
+  disableAllOtherActionSets: 1
   activateOnStart: 1
   deactivateOnDestroy: 1
   initialPriority: 0
@@ -1979,6 +1979,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5002787697989855841}
   - component: {fileID: 5002787697996663661}
+  - component: {fileID: 154776417046798334}
+  - component: {fileID: 5249912919871588511}
   m_Layer: 0
   m_Name: PlayerStrange
   m_TagString: Untagged
@@ -2046,6 +2048,38 @@ MonoBehaviour:
     actionPath: /actions/default/in/HeadsetOnHead
     needsReinit: 0
   allowToggleTo2D: 1
+--- !u!114 &154776417046798334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5002787697990195737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80b98fdf6852bfb43b3f700c62dfc0d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trackpad: {x: 0, y: 0}
+  gridMask:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!114 &5249912919871588511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5002787697990195737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80b98fdf6852bfb43b3f700c62dfc0d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trackpad: {x: 0, y: 0}
+  gridMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &5002787697990196343
 GameObject:
   m_ObjectHideFlags: 0
