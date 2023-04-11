@@ -4,11 +4,20 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
+using Valve.VR;
 
 public class GridMovement : MonoBehaviour
 {
+    public SteamVR_Action_Boolean movePressed;
+    public SteamVR_Action_Vector2 moveAction;
+    public SteamVR_Input_Sources handType;
+    public Vector2 trackpad;
+    public LayerMask gridMask;
+    
     public GameObject[] grid = new GameObject[9];
     private int playerMovementCounter;
+
+    private bool hasMoved = false; 
     public int PlayerMovementCounter
     {
         get => playerMovementCounter;
@@ -19,6 +28,7 @@ public class GridMovement : MonoBehaviour
 
     private void Start()
     {
+        //moveAction.AddOnAxisListener(DoMovement, handType);
         playerMovementCounter = 0;
         if (ExperimentManager.isTutorial)
         {
@@ -30,10 +40,36 @@ public class GridMovement : MonoBehaviour
             
         }
     }
+    private void updateInput()
+    {
+        trackpad = SteamVR_Actions.movement_TakeStep.GetAxis(SteamVR_Input_Sources.Any);
+        //Debug.Log(trackpad);
+    }
+
+    /*public void DoMovement(SteamVR_Action_Vector2 fromAction, SteamVR_Input_Sources fromSource, Vector2 axis, Vector2 delta)
+    {
+        Debug.Log(axis);
+    }*/
 
     // Update is called once per frame
     void Update()
     {
+        updateInput();
+
+        if (hasMoved == false)
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(new Vector3(transform.position.x, 0.0f, transform.position.z),
+                    new Vector3(trackpad.x, 0.0f, trackpad.y), out hit, 2.0f, gridMask))
+            {
+                //Debug.Log(hit.transform.gameObject.name);
+                this.transform.position = hit.transform.position + new Vector3(0,1.1f,0);
+                hasMoved = true;
+                StartCoroutine(Delay());
+            }
+        }
+        
+        /*
         for (int i = 0; i < grid.Length; i++)
         {
             if (Input.GetKeyDown("[" + (i+1) + "]"))
@@ -47,8 +83,13 @@ public class GridMovement : MonoBehaviour
                     calc.Invoke("SetCurrentScore", 0f);
                 }
             }
-        }
-        
-        
+        }*/
     }
+
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(0.5f);
+        hasMoved = false;
+    }
+    
 }

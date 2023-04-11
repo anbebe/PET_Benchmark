@@ -86,6 +86,10 @@
       "name": "/actions/mixedreality/in/ExternalCamera",
       "type": "pose",
       "requirement": "optional"
+    },
+    {
+      "name": "/actions/Movement/in/TakeStep",
+      "type": "vector2"
     }
   ],
   "action_sets": [
@@ -103,6 +107,10 @@
     },
     {
       "name": "/actions/mixedreality",
+      "usage": "single"
+    },
+    {
+      "name": "/actions/Movement",
       "usage": "single"
     }
   ],
