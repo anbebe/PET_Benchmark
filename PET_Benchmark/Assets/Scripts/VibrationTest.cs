@@ -48,11 +48,11 @@ public class VibrationTest : MonoBehaviour
                 this.transform.position.y, other.transform.position.z) - this.transform.position);
             distance = Mathf.Abs(direction.magnitude) -1 ;
             timer = distance; 
-            float intensity = 100 - 100 * distance;
+            float intensity = 100 - 45.5f * distance;
 
             //Debug.DrawRay(this.transform.position, direction, Color.red);
             
-            RaycastHit[] hit = Physics.SphereCastAll(this.transform.position, 0.3f,direction, 10, sensorLayer, QueryTriggerInteraction.Collide); 
+            RaycastHit[] hit = Physics.SphereCastAll(this.transform.position, 0.4f,direction, 20, sensorLayer, QueryTriggerInteraction.Collide); 
             for (int i = 0; i< hit.Length; i++)
             {
                 //Debug.Log(hit[i].transform.gameObject.name);
@@ -85,11 +85,13 @@ public class VibrationTest : MonoBehaviour
             Vector3 direction = (new Vector3(other.transform.position.x,
                 this.transform.position.y, other.transform.position.z) - this.transform.position);
             distance = Mathf.Abs(direction.magnitude) -1 ;
-            float intensity = 100 - 100 * distance;
+            
+            //Debug.Log(distance);
+            float intensity = 100 - 45.5f * distance;
 
             //Debug.DrawRay(this.transform.position, direction, Color.red);
             
-            RaycastHit[] hit = Physics.SphereCastAll(this.transform.position, 0.3f,direction, 10, sensorLayer, QueryTriggerInteraction.Collide); 
+            RaycastHit[] hit = Physics.SphereCastAll(this.transform.position, 0.4f,direction, 20, sensorLayer, QueryTriggerInteraction.Collide); 
             for (int i = 0; i< hit.Length; i++)
             {
                 //Debug.Log(hit[i].transform.gameObject.name);
